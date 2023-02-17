@@ -10,6 +10,7 @@
   --navy-blue-modal: rgba(46, 47, 66, 0.4);
   --grey: rgba(46, 47, 66, 0.7);
   --clr-white: #ffffff;
+  --clr-modal-bacground: #fcfcfc;
 }
 
 body {
@@ -112,15 +113,28 @@ img {
   display: block;
   padding: 24px 0;
 
+  color: var(--secondary-color);
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: var(--secondary-color);
 }
 
 .menu-link.current {
+  position: relative;
   color: var(--accent-color);
+}
+
+.menu-link.current::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .menu-link:hover,
@@ -207,6 +221,7 @@ section {
     url(../images/index-img/hero-bkg.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .hero-title {
@@ -240,6 +255,7 @@ section {
 .order-btn:hover,
 .order-btn:focus {
   background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /* ADVENTAGES */
@@ -251,11 +267,6 @@ section {
 
 .advantages-list-item {
   flex-basis: calc((100% - 24px * 3) / 4);
-}
-
-.advantages .icon {
-  width: 64px;
-  height: 64px;
 }
 
 .advantages .thumb {
@@ -314,26 +325,26 @@ section {
 }
 
 .socials-item {
-  flex-basis: calc ((100% - 24px * 3) / 4);
+  flex-basis: calc((100% - 24px * 3) / 4);
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background-color: currentColor;
 }
 
 .team .social-link {
-  display: flex;
-  min-height: 40px;
-  min-width: 40px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--iris);
-}
-
-.team .social-link > .icon {
-  width: 16px;
-  height: 16px;
+  color: var(--iris);
 }
 
 .team .social-link:hover {
-  background-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* CUSTOMERS */
@@ -358,8 +369,6 @@ section {
 }
 
 .customers .icon {
-  width: 104px;
-  height: 56px;
   fill: currentColor;
 }
 
@@ -413,23 +422,57 @@ section {
 }
 
 .main-footer .social-link {
-  display: flex;
-  min-height: 40px;
-  min-width: 40px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
   background-color: var(--primary-color);
-}
-
-.main-footer .social-link > .icon {
-  width: 24px;
-  height: 24px;
 }
 
 .main-footer .social-link:hover {
   background-color: var(--green);
 }
+
+/* MODAL WINDOW */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--navy-blue-modal);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 408px;
+  min-height: 576px;
+
+  background-color: var(--clr-modal-bacground);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
 /* PORTFOLIO MAIN*/
 
 .galery {
@@ -438,14 +481,17 @@ section {
 
 .filter-btn {
   padding: 12px 24px;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
+
   color: var(--iris);
   background-color: var(--cloud);
   border: 1px solid var(--cornflower);
   border-radius: 4px;
+
   cursor: pointer;
 }
 
