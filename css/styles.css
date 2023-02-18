@@ -555,7 +555,7 @@ section {
   overflow: hidden;
 }
 
-.card-ovelay {
+.card-overlay {
   position: absolute;
   bottom: -100%;
   width: 100%;
@@ -567,12 +567,12 @@ section {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-ovelay > .text {
+.card-overlay > .text {
   color: var(--cloud);
 }
 
-.galery-item:hover .card-ovelay,
-.galery-item:focus .card-ovelay {
+.galery-item:hover .card-overlay,
+.galery-item:focus .card-overlay {
   transform: translateY(-100%);
 }
 
