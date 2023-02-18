@@ -383,7 +383,8 @@ section {
   fill: currentColor;
 }
 
-.customer-link:hover {
+.customer-link:hover,
+.customer-link:focus {
   color: var(--accent-color);
   border-color: currentColor;
 }
